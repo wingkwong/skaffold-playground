@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skaffold-playgroud-web
+  labels:
+    app: skaffold-playgroud-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skaffold-playgroud-web
+  template:
+    metadata:
+      labels:
+        app: skaffold-playgroud-web
+    spec:
+      containers:
+        - name: skaffold-playgroud-web
+          image: skaffold-playgroud-web
+          ports:
+            - containerPort: 4000

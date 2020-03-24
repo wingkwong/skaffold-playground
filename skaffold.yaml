@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+metadata:
+  name: skaffold-playground
+build:
+  artifacts:
+  - image: skaffold-playgroud-app
+    context: app
+  - image: skaffold-playgroud-web
+    context: web
+deploy:
+  kubectl:
+    manifests:
+    - app/manifests/deployment.yaml
+    - web/manifests/deployment.yaml
